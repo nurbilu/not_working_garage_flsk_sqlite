@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% block title %}Car Database{% endblock %}
+{% block head %}
+{{ super() }}
+<style type="text/css">
+    .important {
+        color: #336699;
+    }
+</style>
+{% endblock %}
+{% block content %}
+<h1>Car Database</h1>
+<p class="important">
+<h1>Car Database</h1>
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Model</th>
+            <th>Year</th>
+            <th>color</th>
+        </tr>
+    </thead>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Model</th>
+            <th>Year</th>
+            <th>color</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for car in cars %}
+        <tr>
+            <td>{{ car.id }}</td>
+            <td>{{ car.model }}</td>
+            <td>{{ car.year }}</td>
+            <td>{{ car.color }}</td>
+            <td><a href="{{ url_for('delete', car_id=car.id) }}">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    
+</table>
+{% endblock %}
